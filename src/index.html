@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+  <title>Weather App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <style data-tag="reset-style-sheet">
+    html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style:normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.15;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+    data-tag="font"
+  />
+  <link rel="stylesheet" href="./style.css" />
+  
+</head>
+<body>
+  <div class="">
+    <link href="./weather-widget.css" rel="stylesheet" />
+
+    <div class="weather-widget-container">
+      <div class="weather-widget-weather-widget">
+        <div class="weather-widget-background">
+          <img
+            src="public/playground_assets/ellipse317-12t-200h.png"
+            alt="Ellipse317"
+            class="weather-widget-ellipse3"
+          />
+          <img
+            src="public/playground_assets/ellipse113-egl-800h.png"
+            alt="Ellipse113"
+            class="weather-widget-ellipse1"
+          />
+          <img
+            src="public/playground_assets/ellipse216-vmip-500h.png"
+            alt="Ellipse216"
+            class="weather-widget-ellipse2"
+          />
+        </div>
+        <img
+          src="public/playground_assets/glass15-osw9-700w.png"
+          alt="Glass15"
+          class="weather-widget-glass"
+        />
+        <img
+          src="public/playground_assets/boundary18-jlms-800h.png"
+          alt="Boundary18"
+          class="weather-widget-boundary"
+        />
+        <div class="weather-widget-widget-content">
+          <div class="flex items-center justify-between w-[560px] h-28">
+            <input id="inputCity" type="text" class="h-10 rounded-lg p-2" placeholder="Enter a city name...">
+            <span id="textCity"class=" h-auto " style="
+            color: rgba(255, 255, 255, 1);
+            
+            font-size: 40px;
+            font-style: Regular;
+            font-family: Sarabun;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;"><span>Bengalur</span></span>
+          </div>
+          <!-- weather-widget-input
+          weather-widget-text -->
+          
+          
+          <span id="statusWeather" class="weather-widget-text02"><span>Clear</span></span>
+          <span class="weather-widget-text04"><span>20:00</span></span>
+          <span class="weather-widget-text06"><span>06:44</span></span>
+          <span class="weather-widget-text08"><span>17:58</span></span>
+          <span class="weather-widget-text10"><span>Details</span></span>
+          <span class="weather-widget-text12"><span>RealFeel</span></span>
+          <span class="weather-widget-text14"><span>Humidity</span></span>
+          <span class="weather-widget-text16"><span>W, force</span></span>
+          <span class="weather-widget-text18"><span>Pressure</span></span>
+          <span class="weather-widget-text20"><span>18 C</span></span>
+          <span class="weather-widget-text22"><span>21:00</span></span>
+          <span class="weather-widget-text24"><span>22:00</span></span>
+          <span class="weather-widget-text26"><span>23:00</span></span>
+          <span class="weather-widget-text28"><span>00:00</span></span>
+          <span id="cityTemp" class="weather-widget-text30"><span>20 C</span></span>
+          <span class="weather-widget-text32">.</span>
+          <img
+            src="public/playground_assets/emojionecrescentmoon419-gv.svg"
+            alt="emojionecrescentmoon419"
+            class="weather-widget-emojionecrescentmoon"
+          />
+          <img
+            src="public/playground_assets/emojionecrescentmoon421-lxcj.svg"
+            alt="emojionecrescentmoon421"
+            class="weather-widget-emojionecrescentmoon1"
+          />
+          <img
+            src="public/playground_assets/emojionecrescentmoon423-hiwp.svg"
+            alt="emojionecrescentmoon423"
+            class="weather-widget-emojionecrescentmoon2"
+          />
+          <img
+            src="public/playground_assets/emojionecrescentmoon425-ollw.svg"
+            alt="emojionecrescentmoon425"
+            class="weather-widget-emojionecrescentmoon3"
+          />
+          <img
+            src="public/playground_assets/emojionecrescentmoon427-dnzj.svg"
+            alt="emojionecrescentmoon427"
+            class="weather-widget-emojionecrescentmoon4"
+          />
+          <img
+            src="public/playground_assets/widegrees431-srk.svg"
+            alt="widegrees431"
+            class="weather-widget-widegrees"
+          />
+          <div class="weather-widget-group1">
+            <span class="weather-widget-text33"><span>18 C</span></span>
+            <img
+              src="public/playground_assets/widegrees463-w6wv.svg"
+              alt="widegrees463"
+              class="weather-widget-widegrees1"
+            />
+          </div>
+          <span class="weather-widget-text35"><span>17 C</span></span>
+          <span class="weather-widget-text37"><span>63%</span></span>
+          <span class="weather-widget-text39"><span>1012hPa</span></span>
+          <span class="weather-widget-text41">3</span>
+          <img
+            src="public/playground_assets/widegrees434-mbgf.svg"
+            alt="widegrees434"
+            class="weather-widget-widegrees2"
+          />
+          <span class="weather-widget-text42"><span>16 C</span></span>
+          <img
+            src="public/playground_assets/widegrees437-ir8.svg"
+            alt="widegrees437"
+            class="weather-widget-widegrees3"
+          />
+          <span class="weather-widget-text44"><span>15 C</span></span>
+          <img
+            src="public/playground_assets/widegrees440-7dkc.svg"
+            alt="widegrees440"
+            class="weather-widget-widegrees4"
+          />
+          <span class="weather-widget-text46"><span>14 C</span></span>
+          <img
+            src="public/playground_assets/widegrees443-mmzc.svg"
+            alt="widegrees443"
+            class="weather-widget-widegrees5"
+          />
+          <img
+            src="public/playground_assets/line1445-usea.svg"
+            alt="Line1445"
+            class="weather-widget-line1"
+          />
+          <img
+            src="public/playground_assets/bisunrise447-ncz.svg"
+            alt="bisunrise447"
+            class="weather-widget-bisunrise"
+          />
+          <img
+            src="public/playground_assets/bisunset449-5l4v.svg"
+            alt="bisunset449"
+            class="weather-widget-bisunset"
+          />
+          <img
+            src="public/playground_assets/line3459-0hwa.svg"
+            alt="Line3459"
+            class="weather-widget-line3"
+          />
+          <img
+            src="public/playground_assets/line2457-1ip7.svg"
+            alt="Line2457"
+            class="weather-widget-line2"
+          />
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="weather.js"></script>
+  
+</body>
+</html>
