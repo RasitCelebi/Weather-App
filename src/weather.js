@@ -1,4 +1,4 @@
-console.log("Selam");
+//import axios from 'axios';
 const url = "https://api.openweathermap.org/data/2.5/";
 const key = "57baf028e3141c7e7bb486d6f3ff9f8e";
 
@@ -29,35 +29,41 @@ function onCreated() {
   const getResult = (cityName) => {
     let query = `${url}weather?q=${cityName}&appid=${key}&units=metric&lang=tr`;
 
-    fetch(query)
+    /*  fetch(query)
       .then((weather) => {
         return weather.json();
       })
-      .then(displayResult);
+      .then(displayResult)
+      .catch((error)=>{
+        console.log(error);
+      }); */
+
+    const axiosData = async () => {
+      try {
+        const get_data = await axios.get(query);
+        displayResult(get_data);
+      } catch (error) {
+        if (error.response.statusText == "Not Found") {
+          textCity.textContent = "-";
+          cityTemp.textContent = `-  C`;
+          statusWeather.textContent = "-";
+
+          alert(`Mistake! ${cityNameInput} City, was not found`);
+        }
+      }
+    };
+
+    // call the function
+    axiosData();
   };
 
   const displayResult = (result) => {
-    console.log(result);
-
-    if (result.cod == 404) {
-        textCity.textContent = "-";
-        cityTemp.textContent = `-  C`;
-        statusWeather.textContent = "-";
-
-      alert(`Mistake! ${cityNameInput} City, was not found`);
+    if (result.status == 200) {
+      textCity.textContent = result.data.name;
+      cityTemp.textContent = `${Math.round(result.data.main.temp)}  C`;
+      statusWeather.textContent = result.data.weather[0].description;
     } else {
-      textCity.textContent = result.name;
-      cityTemp.textContent = `${Math.round(result.main.temp)}  C`;
-      statusWeather.textContent = result.weather[0].description;
-      
+      alert("Status is not 200.");
     }
   };
-
-  async function createUserFB() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 3000);
-    });
-  }
 }
